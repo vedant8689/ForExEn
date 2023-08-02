@@ -1,0 +1,107 @@
+Date Algerian dinar   (DZD)
+Australian dollar   (AUD)
+Bahrain dinar (BHD)
+Bolivar Fuerte   (VEF)
+Botswana pula   (BWP)
+Brazilian real   (BRL)
+Brunei dollar   (BND)
+Canadian dollar   (CAD)
+Chilean peso   (CLP)
+Chinese yuan   (CNY)
+Colombian peso   (COP)
+Czech koruna   (CZK)
+Danish krone   (DKK)
+Euro   (EUR)
+Hungarian forint   (HUF)
+Icelandic krona   (ISK)
+Indian rupee   (INR)
+Indonesian rupiah   (IDR)
+Iranian rial   (IRR)
+Israeli New Shekel   (ILS)
+Japanese yen   (JPY)
+Kazakhstani tenge   (KZT)
+Korean won   (KRW)
+Kuwaiti dinar   (KWD)
+Libyan dinar   (LYD)
+Malaysian ringgit   (MYR)
+Mauritian rupee   (MUR)
+Mexican peso   (MXN)
+Nepalese rupee   (NPR)
+New Zealand dollar   (NZD)
+Norwegian krone   (NOK)
+Omani rial   (OMR)
+Pakistani rupee   (PKR)
+Peruvian sol   (PEN)
+Philippine peso   (PHP)
+Polish zloty   (PLN)
+Qatari riyal   (QAR)
+Russian ruble   (RUB)
+Saudi Arabian riyal   (SAR)
+Singapore dollar   (SGD)
+South African rand   (ZAR)
+Sri Lankan rupee   (LKR)
+Swedish krona   (SEK)
+Swiss franc   (CHF)
+Thai baht   (THB)
+Trinidadian dollar   (TTD)
+Tunisian dinar   (TND)
+U.A.E. dirham   (AED)
+U.K. pound   (GBP)
+U.S. dollar   (USD)
+Uruguayan peso   (UYU)
+
+
+
+[
+    "Date Algerian dinar",
+    "Australian dollar"
+    "Bahrain dinar",
+    "Bolivar Fuerte",
+    "Botswana pula"
+    "Brazilian real"
+    "Brunei dollar"
+    "Canadian dollar"
+    "Chilean peso"
+    "Chinese yuan"
+    "Colombian peso",
+    "Czech koruna",
+    "Danish krone",
+    "Euro",
+    "Hungarian forint",
+    "Icelandic krona",
+    "Indian rupee",
+    "Indonesian rupiah",
+    "Iranian rial",
+    "Israeli New Shekel",
+    "Japanese yen",
+    "Kazakhstani tenge",
+    "Korean won",
+    "Kuwaiti dinar",
+    "Libyan dinar",
+    "Malaysian ringgit",
+    "Mauritian rupee",
+    "Mexican peso",
+    "Nepalese rupee",
+    "New Zealand dollar",
+    "Norwegian krone"
+    "Omani rial",
+    "Pakistani rupee"
+    "Peruvian sol",
+    "Philippine peso",
+    "Polish zloty",
+    "Qatari riyal",
+    "Russian ruble",
+    "Saudi Arabian riyal",
+    "Singapore dollar",
+    "South African rand",
+    "Sri Lankan rupee",
+    "Swedish krona",
+    "Swiss franc",
+    "Thai baht",
+    "Trinidadian dollar",
+    "Tunisian dinar",
+    "U.A.E. dirham",
+    "U.K. pound",
+    "U.S. Dollar",
+    "Uruguayan peso"
+]

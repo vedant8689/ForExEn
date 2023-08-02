@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="icon" href="https://freepngimg.com/download/money/63478-converter-exchange-symbol-foreign-currency-rate-market.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <title>Fx Rates Calculator</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">FX Rates Calculator</h2>
+        <div class="row mb-5">
+            <div class="col-md-10">
+                <select class="form-control" id="fxCountry">
+                    <option disabled selected>Select Currency</option>
+                    <option value="INR">Algerian dinar (DZD)
+                    <option value="AUD">Australian dollar (AUD)</option>
+                    <option value="BHD">Bahrain dinar (BHD)</option>
+                    <option value="VEF">Bolivar Fuerte (VEF)</option>
+                    <option value="BWP">Botswana pula (BWP)</option>
+                    <option value="BRL">Brazilian real (BRL)</option>
+                    <option value="BND">Brunei dollar (BND)</option>
+                    <option value="CAD">Canadian dollar (CAD)</option>
+                    <option value="CLP">Chilean peso (CLP)</option>
+                    <option value="CNY">Chinese yuan (CNY)</option>
+                    <option value="COP">Colombian peso (COP)</option>
+                    <option value="CZK">Czech koruna (CZK)</option>
+                    <option value="DKK">Danish krone (DKK)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="HUF">Hungarian forint   (HUF)</option>
+                    <option value="ISK">Icelandic krona   (ISK)</option>
+                    <option value="INR">Indian rupee   (INR)</option>
+                    <option value="IDR">Indonesian rupiah   (IDR)</option>
+                    <option value="IRR">Iranian rial   (IRR)</option>
+                    <option value="ILS">Israeli New Shekel   (ILS)</option>
+                    <option value="JPY">Japanese yen   (JPY)</option>
+                    <option value="KZT">Kazakhstani tenge   (KZT)</option>
+                    <option value="KRW">Korean won   (KRW)</option>
+                    <option value="KWD">Kuwaiti dinar   (KWD)</option>
+                    <option value="LYD">Libyan dinar   (LYD)</option>
+                    <option value="MYR">Malaysian ringgit   (MYR)</option>
+                    <option value="MUR">Mauritian rupee   (MUR)</option>
+                    <option value="MXR">Mexican peso   (MXN)</option>
+                    <option value="NPR">Nepalese rupee   (NPR)</option>
+                    <option value="NZD">New Zealand dollar   (NZD)</option>
+                    <option value="NOK">Norwegian krone   (NOK)</option>
+                    <option value="OMR">Omani rial   (OMR)</option>
+                    <option value="PKR">Pakistani rupee   (PKR)</option>
+                    <option value="PEN">Peruvian sol   (PEN)</option>
+                    <option value="PHP">Philippine peso   (PHP)</option>
+                    <option value="PLN">Polish zloty   (PLN)</option>
+                    <option value="QAR">Qatari riyal   (QAR)</option>
+                    <option value="RUB">Russian ruble   (RUB)</option>
+                    <option value="SAR">Saudi Arabian riyal   (SAR)</option>
+                    <option value="SGD">Singapore dollar   (SGD)</option>
+                    <option value="ZAR">South African rand   (ZAR)</option>
+                    <option value="LKR">Sri Lankan rupee   (LKR)</option>
+                    <option value="SEK">Swedish krona   (SEK)</option>
+                    <option value="CHF">Swiss franc   (CHF)</option>
+                    <option value="THB">Thai baht   (THB)</option>
+                    <option value="TTD">Trinidadian dollar   (TTD)</option>
+                    <option value="TND">Tunisian dinar   (TND)</option>
+                    <option value="USD">US Dollar  (USD)</option>
+                    <option value="AED">U.A.E. dirham   (AED)</option>
+                    <option value="GBP">U.K. pound   (GBP)</option>)
+                    <option value="UYU">Uruguayan peso   (UYU)</option>
+                </select>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-outline-secondary" value="fetch" onclick="getResults()">Fetch</button>
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-outline-secondary" href="index.html">Home</a>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <tr>
+                <th>Abbrevations</th>
+                <th>Description</th>
+                <th>Current Rates</th>
+                <th>FX Rate</th>
+            </tr>
+        </table>
+        <div id="liveRates"></div>
+    </div>
+
+    <script>
+        const api = "https://api.exchangerate-api.com/v4/latest/USD";
+        let fxCountry;
+
+
+        function getResults() {
+            fetch(`${api}`).then(currency => {
+                    return currency.json();
+                }).then(displayResults);
+        }
+
+
+        function displayResults(currency) {
+            fxCountry=document.getElementById("fxCountry").value;
+            console.log(fxCountry);
+            let fxRate=1/(currency.rates[fxCountry]);
+            console.log(fxRate);
+            var list1 = ["DZD","AUD","BHD","VEF","BWP","BRL","BND","CAD","CLP","CNY","COP","CZK","DKK","EUR","HUF","ISK","INR","IDR","IRR","ILS","JPY","KZT","KRW","KWD","LYD","MYR","MUR","MXN","NPR","NZD","NOK","OMR","PKR","PEN","PHP","PLN","QAR","RUB","SAR","SGD","ZAR","LKR","SEK","CHF","THB","TTD","TND","AED","GBP","USD","UYU"];
+            var list2 = ["Date Algerian dinar","Australian dollar","Bahrain dinar","Bolivar Fuerte","Botswana pula","Brazilian real","Brunei dollar","Canadian dollar","Chilean peso","Chinese yuan","Colombian peso","Czech koruna","Danish krone","Euro","Hungarian forint","Icelandic krona","Indian rupee","Indonesian rupiah","Iranian rial","Israeli New Shekel","Japanese yen","Kazakhstani tenge","Korean won","Kuwaiti dinar","Libyan dinar","Malaysian ringgit","Mauritian rupee","Mexican peso","Nepalese rupee","New Zealand dollar","Norwegian krone","Omani rial","Pakistani rupee","Peruvian sol","Philippine peso","Polish zloty","Qatari riyal","Russian ruble","Saudi Arabian riyal","Singapore dollar","South African rand","Sri Lankan rupee","Swedish krona","Swiss franc","Thai baht","Trinidadian dollar","Tunisian dinar","U.A.E. dirham","U.K. pound","U.S. Dollar","Uruguayan peso"];
+            let result="<table class=table table-hover>";
+            for(let i = 0; i< list1.length; ++i)
+            {
+                let temp=currency.rates[list1[i]]*fxRate;
+                let final=temp.toFixed(2);
+                console.log(temp);
+                result += "<tr>"+
+                    "<td>"+list1[i]+"</td>"+
+                    "<td class='text-center'>"+list2[i]+"</td>"+
+                    "<td>"+currency.rates[list1[i]]+"</td>"+
+                    "<td class='ml-5'>"+final+"</td>"+
+                    "</tr>";
+            }
+            result+="</table>";
+            document.getElementById('liveRates').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
