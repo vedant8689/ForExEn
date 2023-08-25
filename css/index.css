@@ -1,0 +1,12 @@
+.body{
+    background-color: rgb(240, 204, 204);
+}
+.header-main{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 15px;
+    color: rgb(223, 98, 119);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* float: auto; */
+}
